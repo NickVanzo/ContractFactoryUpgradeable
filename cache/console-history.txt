@@ -1,3 +1,6 @@
+await contract_D.getCurrentCounter()
+const contract_D = await contr.attach('0x0B306BF915C4d645ff596e518fAf3F9669b97016')
+const contr = await ethers.getContractFactory('TokenFactoryRV2')
 await contract_d
 const contract_d = await contract.attach('0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9')
 const contract = await ethers.getContractFactory("TokenFactoryR")

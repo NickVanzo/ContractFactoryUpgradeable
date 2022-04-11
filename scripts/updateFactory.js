@@ -3,12 +3,13 @@ const fs = require('fs');
 // scripts/deploy.js
 async function main() {
     let addr = readJson();
-    const Token = await ethers.getContractFactory("TokenR");
-    const TokenFactory = await ethers.getContractFactory("TokenFactoryRV2");
-    
-    const tokenFactory = await TokenFactory.attach(addr['factory']);
-    await tokenFactory.createProxyContract('Nick', 'Nick2');
+
+    const TokenFactoryV2 = await ethers.getContractFactory("TokenFactoryRV2");
+
+    await upgrades.upgradeProxy(addr['factory'], TokenFactoryV2);
+    console.log('Done');
 }
+
 
 readJson = () => {
     let data = fs.readFileSync('addresses.json');
